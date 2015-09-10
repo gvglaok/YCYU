@@ -12,6 +12,10 @@
     	overflow: hidden;
     }
 
+    .cklogo{
+    	
+    }
+
 @media screen and (max-width: 750px){
 	.ckHeadNav {
 		margin: 0;
