@@ -1,0 +1,20 @@
+/* 样式		2015-9-10	keven */
+    .cksearch {
+        margin-top: 20px;
+    }
+    
+    .ckHeadNav {
+        margin-top: 20px;
+        background-color: #FFF;
+    }
+
+    .ckpanel{
+    	overflow: hidden;
+    }
+
+@media screen and (max-width: 750px){
+	.ckHeadNav {
+		margin: 0;
+        background-color: #FFF;
+    }
+}
