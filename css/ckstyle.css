@@ -12,8 +12,9 @@
     	overflow: hidden;
     }
 
-    .cklogo{
-    	
+    .cklogo:hover{
+    	color: #337AB7;
+    	text-decoration: none;
     }
 
 @media screen and (max-width: 750px){
