@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://www.ycyu.com';
+$config['base_url'] = 'http://192.168.2.5/t6';
 
 /*
 |--------------------------------------------------------------------------
