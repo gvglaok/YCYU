@@ -21,35 +21,32 @@
 
 <body>
     <div class="container">
-    <code>
-        <?php 
-        echo $data;
-         ?>
-    </code>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <h3><span class="glyphicon glyphicon-signal"></span>&nbsp;&nbsp;<a class="cklogo" href="/t6">YCYU</a></h3>
             </div>
         </div>
+
         <div id="login" class="row">
             <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
-                <form action="" method="POST" role="form">
+                <form action="/t6/index.php/clogin/userlogin" method="POST" role="form">
                     <div class="form-group">
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" id="" placeholder="用户名">
+                            <input type="text" class="form-control" id="name" placeholder="用户名">
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="" placeholder="密  码">
+                            <input type="password" class="form-control" id="key" placeholder="密  码">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">登 录</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info">注册</button>
                 </form>
             </div>
         </div>
+        
         <div id="regist" class="row" style="display: none">
             <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
                 <form action="" method="POST" role="form">

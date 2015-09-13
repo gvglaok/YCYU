@@ -9,7 +9,7 @@ class cLogin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('mLogin');
+		/*$this->load->model('mLogin');
 		$data=$this->mLogin->getUser();
 		if ($data->num_rows() > 0)
 		{
@@ -21,8 +21,13 @@ class cLogin extends CI_Controller {
 			    echo $row['cTime'];
 			    echo "<br>";
 			}
-		}
-		//$this->load->view('login',$data);
+		}*/
+		$this->load->view('login');
+	}
+	public function userLogin()
+	{
+		$Name=$this->input->post('name', TRUE);
+		
 	}
 
 }
