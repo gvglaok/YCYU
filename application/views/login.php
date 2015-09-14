@@ -30,7 +30,7 @@
 
         <div id="login" class="row">
             <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
-                <form action="/t6/index.php/clogin/userlogin" method="POST" role="form">
+                <form action="<?php echo base_url(); ?>clogin/userlogin" method="POST" role="form">
                     <div class="form-group">
                         <br>
                         <div class="input-group">
@@ -50,7 +50,7 @@
         
         <div id="regist" class="row" style="display: none">
             <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
-                <form action="" method="POST" role="form">
+                <form action="<?php echo base_url(); ?>clogin/regist" method="POST" role="form">
                     <div class="form-group">
                         <br>
                         <div class="input-group">
@@ -67,9 +67,10 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input type="password" class="form-control" id="" name="cckey" placeholder="确认密码">
                         </div>
+                        <br>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="email" class="form-control" id="" name="cemail" placeholder="确认密码">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input type="email" class="form-control" id="" name="cemail" placeholder="邮箱">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">提交</button>

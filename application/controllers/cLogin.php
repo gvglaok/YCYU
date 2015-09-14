@@ -26,6 +26,7 @@ class cLogin extends CI_Controller {
 		*/
 		$this->load->view('login');
 	}
+
 	public function userLogin()
 	{
 		//载入Model
@@ -42,7 +43,16 @@ class cLogin extends CI_Controller {
 		else {
 			echo "error";
 		}
+	}
 
+	public function regist()
+	{
+		$this->load->model('mLogin');
+		$Name=$this->input->post('cname', TRUE);
+		$Key=$this->input->post('ckey',TRUE);
+		$Email=$this->input->post('cemail',TRUE);
+		$res=$this->mLogin->addUser($Name,$Key,$Email);
+		echo  $res>0 ? "Success" : "Error";
 	}
 
 }

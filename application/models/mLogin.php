@@ -20,7 +20,6 @@ class mLogin extends CI_Model {
 	//用户登录检查
 	public function userCheck($name,$key)
 	{
-		//$sql='SELECT * FROM `user` WHERE cName='.$name.' AND cKey='.$key.';';
 		$this->db->where('cName',$name);
 		$this->db->where('cKey',$key);
 		$query=$this->db->get('user');
@@ -29,9 +28,14 @@ class mLogin extends CI_Model {
 	}
 
 	//注册新用户
-	public function addUser($name,$key)
+	public function addUser($name,$key,$email)
 	{
-		
+		$this->cName=$name;
+		$this->cKey=$key;
+		$this->cEmail=$email;
+		$this->cTime=date("Y-m-d H:i:s",time());
+		$res=$this->db->insert('user',$this);
+		return $res;
 	}
 
 
