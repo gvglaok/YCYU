@@ -30,17 +30,17 @@
 
         <div id="login" class="row">
             <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
-                <form action="<?php echo base_url(); ?>clogin/userlogin" method="POST" role="form">
+                <form action="<?php echo base_url(); ?>clogin/userlogin" method="POST" role="form" >
                     <div class="form-group">
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" id="cname" name="cname" placeholder="用户名">
+                            <input type="text" class="form-control" id="cname" name="cname" placeholder="用户名" required >
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="ckey" name="ckey" placeholder="密  码">
+                            <input type="password" class="form-control" id="ckey" name="ckey" placeholder="密  码" minLength="6" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">登 录</button>&nbsp;&nbsp;&nbsp;<button id="regBtn" type="button" class="btn btn-info">注册</button>
@@ -55,22 +55,22 @@
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" id="" name="cname" placeholder="用户名">
+                            <input type="text" class="form-control" id="rname" name="cname" placeholder="用户名" required>
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="" name="ckey" placeholder="密  码">
+                            <input type="password" class="form-control" id="rkey" name="ckey" placeholder="密  码" required min="6">
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="" name="cckey" placeholder="确认密码">
+                            <input type="password" class="form-control" id="rckey" name="cckey" placeholder="确认密码" required >
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input type="email" class="form-control" id="" name="cemail" placeholder="邮箱">
+                            <input type="email" class="form-control" id="remail" name="cemail" placeholder="邮箱" required >
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">提交</button>

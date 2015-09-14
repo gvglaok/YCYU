@@ -43,8 +43,8 @@
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-right">
                     <ol class="breadcrumb ckHeadNav">
-                        <li class="active"><a href="login.html">登录</a></li>
-                        <li><a href="#">注册</a></li>
+                        <li class="active"><a href="<?php echo base_url(); ?>clogin">登录</a></li>
+                        <li><a href="<?php echo base_url(); ?>clogin">注册</a></li>
                         <li><a href="user-center.html">个人中心</a></li>
                     </ol>
                 </div>
