@@ -11,12 +11,13 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>skin/css/ckstyle.css">
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>skin/js/comm.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+   <![endif]-->
 </head>
 
 <body>
@@ -34,15 +35,15 @@
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" id="name" placeholder="用户名">
+                            <input type="text" class="form-control" id="cname" name="cname" placeholder="用户名">
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="key" placeholder="密  码">
+                            <input type="password" class="form-control" id="ckey" name="ckey" placeholder="密  码">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">登 录</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info">注册</button>
+                    <button type="submit" class="btn btn-primary">登 录</button>&nbsp;&nbsp;&nbsp;<button id="regBtn" type="button" class="btn btn-info">注册</button>
                 </form>
             </div>
         </div>
@@ -54,23 +55,28 @@
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" id="" placeholder="用户名">
+                            <input type="text" class="form-control" id="" name="cname" placeholder="用户名">
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="" placeholder="密  码">
+                            <input type="password" class="form-control" id="" name="ckey" placeholder="密  码">
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="" placeholder="确认密码">
+                            <input type="password" class="form-control" id="" name="cckey" placeholder="确认密码">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="email" class="form-control" id="" name="cemail" placeholder="确认密码">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">提交</button>
                 </form>
             </div>
         </div>
+
     </div>
 </body>
 

@@ -9,7 +9,8 @@ class cLogin extends CI_Controller {
 
 	public function index()
 	{
-		/*$this->load->model('mLogin');
+		/*
+		$this->load->model('mLogin');
 		$data=$this->mLogin->getUser();
 		if ($data->num_rows() > 0)
 		{
@@ -21,13 +22,27 @@ class cLogin extends CI_Controller {
 			    echo $row['cTime'];
 			    echo "<br>";
 			}
-		}*/
+		}
+		*/
 		$this->load->view('login');
 	}
 	public function userLogin()
 	{
-		$Name=$this->input->post('name', TRUE);
-		
+		//载入Model
+		$this->load->model('mLogin');
+		//获取 post 数据
+		$Name=$this->input->post('cname', TRUE);
+		$Key=$this->input->post('ckey',TRUE);
+
+		$query=$this->mLogin->userCheck($Name,$Key);
+		if ($query->num_rows() > 0) {
+			echo "OK";
+			redirect("http://192.168.2.5/t6");
+		}
+		else {
+			echo "error";
+		}
+
 	}
 
 }
