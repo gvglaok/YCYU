@@ -12,6 +12,8 @@
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>skin/js/comm.js"></script>
+    <script src="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.js"></script>
+    <link href="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -50,7 +52,7 @@
         
         <div id="regist" class="row" style="display: none">
             <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
-                <form action="<?php echo base_url(); ?>clogin/regist" method="POST" role="form">
+                <form action="<?php echo base_url(); ?>clogin/regist" method="POST" role="form" onsubmit="return regCheck()">
                     <div class="form-group">
                         <br>
                         <div class="input-group">
@@ -60,17 +62,18 @@
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="rkey" name="ckey" placeholder="密  码" required min="6">
+                            <input type="password" class="form-control" id="rkey" name="ckey" placeholder="密  码" required>
                         </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="rckey" name="cckey" placeholder="确认密码" required >
+                            <input type="password" class="form-control" id="rckey" name="cckey" placeholder="确认密码" required>
                         </div>
                         <br>
+                        
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input type="email" class="form-control" id="remail" name="cemail" placeholder="邮箱" required >
+                            <input type="email" class="form-control" id="remail" name="cemail" placeholder="邮  箱" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">提交</button>

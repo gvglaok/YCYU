@@ -37,7 +37,6 @@ class cLogin extends CI_Controller {
 
 		$query=$this->mLogin->userCheck($Name,$Key);
 		if ($query->num_rows() > 0) {
-			echo "OK";
 			redirect("http://192.168.2.5/t6");
 		}
 		else {
@@ -52,7 +51,8 @@ class cLogin extends CI_Controller {
 		$Key=$this->input->post('ckey',TRUE);
 		$Email=$this->input->post('cemail',TRUE);
 		$res=$this->mLogin->addUser($Name,$Key,$Email);
-		echo  $res>0 ? "Success" : "Error";
+		//echo  $res>0 ? "Success" : "Error";
+		redirect("http://192.168.2.5/t6");
 	}
 
 }
