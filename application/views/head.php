@@ -6,13 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YCYU</title>
-<!--     <link rel="stylesheet" href="<?php echo base_url(); ?>skin/css/bootstrap.min.css"> -->
+<!--     
+ <link rel="stylesheet" href="<?php echo base_url(); ?>skin/css/bootstrap.min.css">
+ <script src="<?php echo base_url(); ?>skin/js/bootstrap.min.js"></script>
+ -->
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+    <link href="//cdn.bootcss.com/bootstrap-fileinput/4.2.7/css/fileinput.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>skin/css/ckstyle.css">
+
+    
+    <script src="//cdn.bootcss.com/bootstrap-fileinput/4.2.7/js/fileinput.min.js"></script>
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>skin/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>skin/js/comm.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap-fileinput/4.2.7/js/fileinput_locale_zh.min.js"></script>
+        
+    
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

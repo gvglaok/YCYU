@@ -14,6 +14,18 @@ class cUserCenter extends CI_Controller {
 		$this->load->view('foot');
 	}
 
+	//添加技能片
+	public function addCard()
+	{
+		
+	}
+
+	//修改技能片
+	public function modifyCard($value='')
+	{
+		 
+	}
+
 }
 
 /* End of file cUserCenter.php */

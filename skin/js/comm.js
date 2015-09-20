@@ -4,6 +4,7 @@ $(function() {
         $("#regist").fadeIn(500);
     });
 
+
 })();
 
 function regCheck() {

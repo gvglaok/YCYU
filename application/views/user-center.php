@@ -149,17 +149,21 @@
                     <h4 class="modal-title">技能片添加</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="POST" role="form">
-                        <img class="img-rounded" src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%" data-toggle="tooltip" data-placement="top" title="点击更换图片">
+
+                    <form action="" method="POST" role="form" enctype="multipart" >
+                        <img id="addImg" class="img-rounded" src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%" data-toggle="tooltip" data-placement="top" title="点击更换图片">
+                        <input type="file" name="userfile" size="20" />
+
                         <div class="form-group">
                             <br>
-                            <input type="text" class="form-control" id="" placeholder="技能名">
+                            <input type="text" class="form-control" id="jname" placeholder="技能名">
                             <br>
-                            <textarea class="form-control" placeholder="详述" rows="3"></textarea>
+                            <textarea class="form-control" placeholder="详述" name="jj" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                     </form>
+
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -194,3 +198,7 @@
             </div>
         </div>
     </div>
+
+
+
+
