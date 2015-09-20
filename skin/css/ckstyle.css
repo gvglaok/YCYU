@@ -17,6 +17,14 @@
     	text-decoration: none;
     }
 
+    .selectImg{
+        text-align: center;
+        width: 100%;
+        height: 300px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+    }
+
 @media screen and (max-width: 750px){
 	.ckHeadNav {
 		margin: 0;

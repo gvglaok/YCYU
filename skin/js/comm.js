@@ -3,9 +3,7 @@ $(function() {
         $("#login").hide();
         $("#regist").fadeIn(500);
     });
-
-
-})();
+});
 
 function regCheck() {
     var key = $("#rkey").val();

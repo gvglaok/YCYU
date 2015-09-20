@@ -141,7 +141,7 @@
         </div>
     </div>
     <!-- 添加技能窗口 -->
-    <div id="addTec" tabindex="-1" role="dialog" class="modal fade">
+    <div id="addTec" ng-controller="addTec" tabindex="-1" role="dialog" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -149,17 +149,22 @@
                     <h4 class="modal-title">技能片添加</h4>
                 </div>
                 <div class="modal-body">
-
-                    <form action="" method="POST" role="form" enctype="multipart" >
-                        <img id="addImg" class="img-rounded" src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%" data-toggle="tooltip" data-placement="top" title="点击更换图片">
-                        <input type="file" name="userfile" size="20" />
-
+                    
+                    <form action="" novaildate method="POST" role="form" enctype="multipart" >
+                        <!-- <img id="addImg" class="img-rounded" src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%" data-toggle="tooltip" data-placement="top" title="点击更换图片"> -->
+                        <div ngf-select ng-model="file" name="img" ngf-pattern="'image/*'"
+    accept="image/*" ngf-max-size="20MB" ngf-min-height="100" 
+    ngf-resize="{width: 100, height: 100}" class="selectImg">
+                        点击选择展示图片
+                        Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
+                        </div>
                         <div class="form-group">
                             <br>
-                            <input type="text" class="form-control" id="jname" placeholder="技能名">
+                            <input type="text" class="form-control" name="jname" placeholder="技能名">
                             <br>
                             <textarea class="form-control" placeholder="详述" name="jj" rows="3"></textarea>
                         </div>
+
                         <button type="submit" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                     </form>
@@ -199,6 +204,7 @@
         </div>
     </div>
 
+2015-9-20 09:10:40 今天完成 usercenter 功能
 
 
 

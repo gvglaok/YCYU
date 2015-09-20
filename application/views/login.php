@@ -12,6 +12,7 @@
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>skin/js/comm.js"></script>
+    
     <script src="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.js"></script>
     <link href="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
