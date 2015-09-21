@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app>
+<html lang="zh-CN" ng-app="ycyu">
 
 <head>
     <meta charset="UTF-8">

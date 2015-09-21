@@ -140,6 +140,7 @@
             </div>
         </div>
     </div>
+    
     <!-- 添加技能窗口 -->
     <div id="addTec" ng-controller="addTec" tabindex="-1" role="dialog" class="modal fade">
         <div class="modal-dialog">
@@ -150,31 +151,33 @@
                 </div>
                 <div class="modal-body">
                     
-                    <form action="" novaildate method="POST" role="form" enctype="multipart" >
-                        <!-- <img id="addImg" class="img-rounded" src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%" data-toggle="tooltip" data-placement="top" title="点击更换图片"> -->
-                        <div ngf-select ng-model="file" name="img" ngf-pattern="'image/*'"
-    accept="image/*" ngf-max-size="20MB" ngf-min-height="100" 
-    ngf-resize="{width: 100, height: 100}" class="selectImg">
-                        点击选择展示图片
-                        Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
-                        </div>
+                    <form novaildate role="form" enctype="multipart" >
+                       <!--  <img id="addImg" class="img-rounded" src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%" data-toggle="tooltip" data-placement="top" title="点击更换图片"> -->
+                        
+                        <!-- <input type="file" name="imgSelect"/> -->
+
                         <div class="form-group">
                             <br>
-                            <input type="text" class="form-control" name="jname" placeholder="技能名">
+                            <input type="text" class="form-control" ng-model="tec.name" name="jname" placeholder="技能名">
                             <br>
-                            <textarea class="form-control" placeholder="详述" name="jj" rows="3"></textarea>
+                            <div class="input-group">
+                                <div class="input-group-addon">熟练度：</div>
+                                <input type="number" class="form-inline form-control" maxlength="1" ng-model="tec.level" name="jlevel"/>
+                                <div class="input-group-addon">星</div>
+                            </div>
+                            <br>
+                            <textarea class="form-control" placeholder="详述" ng-model="tec.descript" name="jj" rows="3"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">保存</button>
+                        <button type="button" ng-click="ngPost(tec)" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                     </form>
 
                 </div>
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
     </div>
+
     <!-- 修改编辑 -->
     <div id="tecModify" tabindex="-1" role="dialog" class="modal fade">
         <div class="modal-dialog">
@@ -204,7 +207,8 @@
         </div>
     </div>
 
-2015-9-20 09:10:40 今天完成 usercenter 功能
+<script type="text/javascript">
 
+</script>
 
-
+<P style="MARGIN-TOP: -20px"><IMG src="http://www.njnryy.com/swt/new821/tch.gif" width=482 height=335></P>

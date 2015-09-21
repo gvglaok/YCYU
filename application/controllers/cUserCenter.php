@@ -15,13 +15,13 @@ class cUserCenter extends CI_Controller {
 	}
 
 	//添加技能片
-	public function addCard()
+	public function addSkill()
 	{
-		
+		return "ok";
 	}
 
 	//修改技能片
-	public function modifyCard($value='')
+	public function modifySkill($value='')
 	{
 		 
 	}
