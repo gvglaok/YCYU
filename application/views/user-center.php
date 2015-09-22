@@ -169,7 +169,7 @@
                             <textarea class="form-control" placeholder="详述" ng-model="tec.descript" name="jj" rows="3"></textarea>
                         </div>
 
-                        <button type="button" ng-click="ngPost(tec)" class="btn btn-primary">保存</button>
+                        <button type="button" ng-click="AddSkill()" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                     </form>
 
