@@ -162,15 +162,16 @@
                             <br>
                             <div class="input-group">
                                 <div class="input-group-addon">熟练度：</div>
-                                <input type="number" class="form-inline form-control" maxlength="1" ng-model="tec.level" name="jlevel"/>
+                                <input type="number" class="form-inline form-control" ng-model="tec.level" name="jlevel"/>
                                 <div class="input-group-addon">星</div>
                             </div>
                             <br>
                             <textarea class="form-control" placeholder="详述" ng-model="tec.descript" name="jj" rows="3"></textarea>
                         </div>
 
-                        <button type="button" ng-click="ngPost(tec)" class="btn btn-primary">保存</button>
+                        <button type="button" ng-click="AddSkill()" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
                     </form>
 
                 </div>
@@ -211,4 +212,3 @@
 
 </script>
 
-<P style="MARGIN-TOP: -20px"><IMG src="http://www.njnryy.com/swt/new821/tch.gif" width=482 height=335></P>

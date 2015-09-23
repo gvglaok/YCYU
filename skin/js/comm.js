@@ -19,21 +19,24 @@ function regCheck() {
 
 var ngYcyu = angular.module('ycyu', []);
 
-ngYcyu.controller('addTec', ['$scope', function($scope, $http) {
+ngYcyu.controller('addTec', ['$scope', '$http',
+    function($scope, $http) {
 
-    var hp = {
-        method: "post",
-        url: "/t6/cusercenter/addSkill",
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        data: $scope.tec
+        $scope.AddSkill = function() {
+            var hp = {
+                method: "post",
+                url: "/t6/cusercenter/addSkill",
+                headers: {'Content-Type':'application/x-www-form-urlencoded'},
+                data: $scope.tec
+            }
+
+            $http(hp).then(function(response) {
+               /* swal("success","添加成功","It's OK!!");*/
+                alert("OK 2015-9-22 15:32:56");
+            },function(response) {
+                alert("Bad Request");
+            });
+        }
+
     }
-
-    $http(hp).then(function function_name(argument) {
-        alert("ok");
-    }, function function_name(argument) {
-        alert("error");
-    });
-
-}]);
+]);

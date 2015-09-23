@@ -8,9 +8,13 @@ class mUserCenter extends CI_Model {
 		
 	}
 
-	public function add()
+	public function addSkill($name,$level,$descript)
 	{
-		# code...
+		$this->tName=$name;
+		$this->tLevel=$level;
+		$this->tDescription=$descript;
+		$res=$this->db->insert("skill",$this);
+		return $res;
 	}
 }
 

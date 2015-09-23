@@ -13,11 +13,28 @@ class cUserCenter extends CI_Controller {
 		$this->load->view('user-center');
 		$this->load->view('foot');
 	}
+	
+	//拉取skill
+	public function pullSkill()
+	{
+		
+	}
 
 	//添加技能片
 	public function addSkill()
 	{
-		return "ok";
+		$this->load->model("mUsercenter","mu");
+
+		$data=$this->input->raw_input_stream;
+		$obj=json_decode($data);
+		$tName=$obj->name;
+		$tLvl=$obj->level;
+		$tDes=$obj->descript;
+
+		$res=$this->mu->addSkill($tName,$tLvl,$tDes);
+
+		echo $res>0 ? "success" : "error";
+
 	}
 
 	//修改技能片

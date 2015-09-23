@@ -51,8 +51,7 @@ class cLogin extends CI_Controller {
 		$Key=$this->input->post('ckey',TRUE);
 		$Email=$this->input->post('cemail',TRUE);
 		$res=$this->mLogin->addUser($Name,$Key,$Email);
-		//echo  $res>0 ? "Success" : "Error";
-		redirect("http://192.168.2.5/t6");
+		$res>0 ? redirect("http://192.168.2.5/t6") : echo "Success";
 	}
 
 }
