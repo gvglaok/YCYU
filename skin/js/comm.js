@@ -26,13 +26,23 @@ ngYcyu.controller('addTec', ['$scope', '$http',
             var hp = {
                 method: "post",
                 url: "/t6/cusercenter/addSkill",
+<<<<<<< HEAD
                 headers: {'Content-Type':'application/x-www-form-urlencoded'},
+=======
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+>>>>>>> origin/master
                 data: $scope.tec
             }
 
             $http(hp).then(function(response) {
+<<<<<<< HEAD
                /* swal("success","添加成功","It's OK!!");*/
                 alert("OK 2015-9-22 15:32:56");
+=======
+                alert("OK");
+>>>>>>> origin/master
             },function(response) {
                 alert("Bad Request");
             });
