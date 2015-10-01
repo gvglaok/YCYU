@@ -9,7 +9,15 @@ class ycyu extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('head');
+		$un=$this->session->userdata('userName');
+		$data['user']=$un;
+
+		if (isset($un)) {
+			$this->load->view('head',$data);
+		} else {
+			$this->load->view('head');
+		}
+		
 		$this->load->view('ycyu');
 		$this->load->view('foot');
 	}

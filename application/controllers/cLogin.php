@@ -37,10 +37,12 @@ class cLogin extends CI_Controller {
 
 		$query=$this->mLogin->userCheck($Name,$Key);
 		if ($query->num_rows() > 0) {
-			redirect("http://192.168.2.5/t6");
+			$this->session->set_userdata('userName',$Name);
+			redirect("http://192.168.2.5/t6/");
 		}
 		else {
-			echo "error";
+			echo "error 用户名或者密码 不正确";
+			
 		}
 	}
 
@@ -51,7 +53,7 @@ class cLogin extends CI_Controller {
 		$Key=$this->input->post('ckey',TRUE);
 		$Email=$this->input->post('cemail',TRUE);
 		$res=$this->mLogin->addUser($Name,$Key,$Email);
-		$res>0 ? redirect("http://192.168.2.5/t6") : echo "Success";
+		$res>0 ? redirect("http://192.168.2.5/t6") : "Success";
 	}
 
 }

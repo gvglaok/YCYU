@@ -9,6 +9,15 @@ class cUserCenter extends CI_Controller {
 
 	public function index()
 	{
+		//检查是否用户是否登录
+/*		$userName=$_SESSION('userName');
+		if (exit($userName)) {
+			$this->load->view('head',$userName);
+		}
+		else {
+			$userName="登录 注册";
+			$this->load->view('head',$userName);
+		}*/
 		$this->load->view('head');
 		$this->load->view('user-center');
 		$this->load->view('foot');

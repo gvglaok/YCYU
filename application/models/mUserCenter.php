@@ -16,6 +16,11 @@ class mUserCenter extends CI_Model {
 		$res=$this->db->insert("skill",$this);
 		return $res;
 	}
+
+	public function skillGet($value='')
+	{
+		
+	}
 }
 
 /* End of file mUserCenter.php */
