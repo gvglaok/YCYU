@@ -20,23 +20,41 @@ class mLogin extends CI_Model {
 	//用户登录检查
 	public function userCheck($name,$key)
 	{
-		$this->db->where('cName',$name);
-		$this->db->where('cKey',$key);
-		$query=$this->db->get('user');
+		$this->db->where('name',$name);
+		$this->db->where('key',$key);
+		$query=$this->db->get('login');
 		return $query;
-
 	}
 
 	//注册新用户
 	public function addUser($name,$key,$email)
 	{
-		$this->cName=$name;
-		$this->cKey=$key;
-		$this->cEmail=$email;
-		$this->cTime=date("Y-m-d H:i:s",time());
-		$res=$this->db->insert('user',$this);
-		return $res;
+		$data= array('name'=>$name,'key'=>$key,'email'=>$email);
+		$userData=array('name'=>$name);
+		$res=$this->db->insert('login',$data);
+		if ( $res ) 
+		{	
+			$userRes=$this->db->insert('userInfo',$userData);
+		}
+		$query = $this->db->query('SELECT "name" FROM login LIMIT 1');
+
+		$row = $query->row();
+
+		$lid = $row->loginID;
+
+		$query = $this->db->query('SELECT "name" FROM userinfo LIMIT 1');
+
+		$row = $query->row();
+
+		$userid = $row->userID;
+
+		$actData=array('loginID'=>$lid,'userID'=>$userid);
+
+		$actRes=$this->db->insert('act',$actData);
+
+		return $actRes;
 	}
+
 
 
 }
