@@ -77,7 +77,7 @@
                             <input type="email" class="form-control" id="remail" name="cemail" placeholder="邮  箱" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button type="submit" class="btn btn-primary">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>">返回首页</a>
                 </form>
             </div>
         </div>

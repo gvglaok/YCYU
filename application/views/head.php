@@ -47,7 +47,7 @@
                                     if (isset($user)) {
                                         echo "welcome ".$user;
                                     } else {
-                                        echo '<a href="'.$bu.'clogin">登录 注册</a>';
+                                        echo '<a href="'.$bu.'clogin">登录 / 注册</a>';
                                     }
                                 ?>
                         </li>
