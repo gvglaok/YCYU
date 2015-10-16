@@ -44,8 +44,9 @@
                             
                                 <?php 
                                     $bu=base_url();
-                                    if (isset($user)) {
-                                        echo "welcome ".$user;
+                                    $name=$_SESSION['userName'];
+                                    if (isset($name)) {
+                                        echo "welcome ".$name;
                                     } else {
                                         echo '<a href="'.$bu.'clogin">登录 / 注册</a>';
                                     }

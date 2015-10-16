@@ -1,26 +1,32 @@
 $(function() {
+
     $("#regBtn").click(function() {
         $("#login").hide();
         $("#regist").fadeIn(500);
     });
+
 });
 
 function regCheck() {
     var key = $("#rkey").val();
     var ckey = $("#rckey").val();
-    if (key != ckey) {
+    if ( key.length<6) {
+        swal("Warning", "密码长度不能6个字符!", "warning");
+    } else if(key != ckey){   
         swal("Warning", "两次密码输入不一致，请重新输入!", "warning");
-    } else {
-        swal("Success", "注册成功!", "success");
     }
-    return key != ckey ? false : true;
+    //return key != ckey ? false : true;
+};
+
+function okReg () {
+    swal("Success", "注册成功!", "success");
+    location.href="/t6";
 };
 
 
 var ngYcyu = angular.module('ycyu', []);
 
-ngYcyu.controller('addTec', ['$scope', '$http',
-    function($scope, $http) {
+ngYcyu.controller('addTec', ['$scope', '$http', function($scope, $http) {
 
         $scope.AddSkill = function() {
             var hp = {
@@ -31,10 +37,9 @@ ngYcyu.controller('addTec', ['$scope', '$http',
             }
 
             $http(hp).then(function(response) {
-               /* swal("success","添加成功","It's OK!!");*/
-                alert("OK 2015-9-22 15:32:56");
+              alert("-----------  OK -----------");
             },function(response) {
-                alert("Bad Request");
+              alert("Bad Request");
             });
         }
 

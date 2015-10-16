@@ -24,7 +24,8 @@ class cLogin extends CI_Controller {
 			}
 		}
 		*/
-		$this->load->view('login');
+		$data['statusLog']=1;
+		$this->load->view('login',$data);
 	}
 
 	public function userLogin()
@@ -37,23 +38,44 @@ class cLogin extends CI_Controller {
 
 		$query=$this->mLogin->userCheck($Name,$Key);
 		if ($query->num_rows() > 0) {
+			$row = $query->row();
+			$loginID=$row->loginID;
+			$this->session->set_userdata('loginID',$loginID);
 			$this->session->set_userdata('userName',$Name);
 			redirect("http://192.168.2.5/t6/");
 		}
 		else {
-			echo "error 用户名或者密码 不正确";
-			
+			echo "error 用户名或者密码 不正确";	
 		}
 	}
 
 	public function regist()
 	{
 		$this->load->model('mLogin');
+
 		$Name=$this->input->post('cname', TRUE);
+
 		$Key=$this->input->post('ckey',TRUE);
+
 		$Email=$this->input->post('cemail',TRUE);
+
 		$res=$this->mLogin->addUser($Name,$Key,$Email);
-		$res>0 ? redirect("http://192.168.2.5/t6") : "Success";
+
+		//$res>0 ? redirect("http://192.168.2.5/t6") : "Success";
+
+		if( $res === -1 )
+		{
+			$data=array('statusReg'=>'1','mes'=>'用户名已存在！','css'=>'has-error');
+
+			$this->load->view('login',$data);
+
+		} else if($res>0) {
+			$this->session->set_userdata('loginID',$res);
+
+			$this->session->set_userdata('userName',$Name);
+			
+			redirect("http://192.168.2.5/t6/");
+		}
 	}
 
 }

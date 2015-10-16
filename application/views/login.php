@@ -24,6 +24,7 @@
 </head>
 
 <body>
+
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
@@ -31,12 +32,12 @@
             </div>
         </div>
 
-        <div id="login" class="row">
+        <div id="login" class="row" style="display:<?php  echo  !empty($statusLog) ? "block" : "none"; ?>">
             <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
                 <form action="<?php echo base_url(); ?>clogin/userlogin" method="POST" role="form" >
                     <div class="form-group">
                         <br>
-                        <div class="input-group">
+                        <div class="input-group">  
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input type="text" class="form-control" id="cname" name="cname" placeholder="用户名" required >
                         </div>
@@ -51,32 +52,55 @@
             </div>
         </div>
         
-        <div id="regist" class="row" style="display: none">
+        <div id="regist" class="row" style="display:<?php  echo  !empty($statusReg) ? "block" : "none"; ?>">
             <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
                 <form action="<?php echo base_url(); ?>clogin/regist" method="POST" role="form" onsubmit="return regCheck()">
-                    <div class="form-group">
-                        <br>
-                        <div class="input-group">
+                    
+                    <div class="form-group 
+                    
+                    <?php 
+                        if( !empty($css) )
+                          { echo $css; }
+                    ?>
+
+                        ">
+                        <div class="input-group ">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" id="rname" name="cname" placeholder="用户名" required>
+                            <input type="text" class="form-control" id="rname" name="cname" placeholder="用户名"  required>
                         </div>
-                        <br>
+                    </div>
+
+                    <div class="form-group">
+                        
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input type="password" class="form-control" id="rkey" name="ckey" placeholder="密  码" required>
                         </div>
-                        <br>
+                    </div>
+                    <div class="form-group">
+                        
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input type="password" class="form-control" id="rckey" name="cckey" placeholder="确认密码" required>
                         </div>
-                        <br>
+                    </div>
+                    <div class="form-group">
                         
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             <input type="email" class="form-control" id="remail" name="cemail" placeholder="邮  箱" required>
                         </div>
                     </div>
+                    
+                    <?php 
+                        if( !empty($mes) )
+                        {
+                            echo '<div class="form-group"> <div class="alert alert-danger" role="alert">'.$mes.'</div></div>';
+                        }
+                        
+                    ?>
+
+
                     <button type="submit" class="btn btn-primary">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>">返回首页</a>
                 </form>
             </div>

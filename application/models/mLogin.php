@@ -26,23 +26,42 @@ class mLogin extends CI_Model {
 		return $query;
 	}
 
-	//注册新用户
+	//注册新用户 
+	/*
+	检查注册名是否重名
+
+	*/
 	public function addUser($name,$key,$email)
 	{
+		
+
+		$sql='SELECT loginID FROM login where name = ? LIMIT 1';
+
+		$query1= $this->db->query($sql,array($name));
+
+		if( $query1->num_rows()>0 )
+		{
+			return -1;
+		}
+
 		$data= array('name'=>$name,'key'=>$key,'email'=>$email);
-		$userData=array('name'=>$name);
+
+		$userData=array('realName'=>$name);
+
 		$res=$this->db->insert('login',$data);
+
 		if ( $res ) 
 		{	
-			$userRes=$this->db->insert('userInfo',$userData);
+			$userRes=$this->db->insert('userinfo',$userData);
 		}
-		$query = $this->db->query('SELECT "name" FROM login LIMIT 1');
+
+		$query = $this->db->query('SELECT loginID FROM login where name="'.$name.'" LIMIT 1');
 
 		$row = $query->row();
 
 		$lid = $row->loginID;
 
-		$query = $this->db->query('SELECT "name" FROM userinfo LIMIT 1');
+		$query = $this->db->query('SELECT userID FROM userinfo where realName="'.$name.'" LIMIT 1');
 
 		$row = $query->row();
 
@@ -52,7 +71,7 @@ class mLogin extends CI_Model {
 
 		$actRes=$this->db->insert('act',$actData);
 
-		return $actRes;
+		return $lid;
 	}
 
 
