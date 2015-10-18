@@ -44,8 +44,8 @@
                             
                                 <?php 
                                     $bu=base_url();
-                                    $name=$_SESSION['userName'];
-                                    if (isset($name)) {
+                                    $name = $this->session->userdata('userName');
+                                    if (!is_null($name)) {
                                         echo "welcome ".$name;
                                     } else {
                                         echo '<a href="'.$bu.'clogin">登录 / 注册</a>';

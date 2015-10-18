@@ -20,23 +20,22 @@ class mUserCenter extends CI_Model {
 			$row=$query->row();
 			$lastID=$row->la;
 			//查询出 act中skillID 插入skillID
-			$sqla1="select skillID from act where loginID= ? ";
-			$query=$this->db->query($sqla1,array($loginID));
-			$row=$query->row();
+			$sqla1="select skillID from act where loginID= ".$loginID." ";
+			$query1=$this->db->query($sqla1);
+			$row=$query1->row();
 			$skillID=$row->skillID;
-			if(empty($skillID))
+			if(is_null($skillID))
 			{
-				$sqla2="insert into act(skillID) values (?)";
-				$query=$this->db->query($sqla2,array($lastID));
-				
+				$sqla2="UPDATE `act` SET `skillID`=? WHERE (`loginID`=?) ";
+				$query2=$this->db->query($sqla2,array($lastID,$loginID));
 			}
 			else
 			{
-				$idData=','.$lastID;
-				$sqla2="insert into act(skillID) values (?)";
-				$query=$this->db->query($sqla2,array($idData));
+				$idData=$skillID.','.$lastID;
+				$sqla2="UPDATE `act` SET `skillID`=? WHERE (`loginID`=?) ";
+				$query2=$this->db->query($sqla2,array($idData,$loginID));
 			}
-		}
+		}       
 
 		return $res;
 	}
@@ -45,6 +44,7 @@ class mUserCenter extends CI_Model {
 	{
 		
 	}
+	
 }
 
 /* End of file mUserCenter.php */
