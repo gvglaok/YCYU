@@ -10,29 +10,42 @@ class mUserCenter extends CI_Model {
 
 	public function addSkill($name,$level,$descript)
 	{
-		$loginID=$_SESSION['loginID'];
+		$loginID=$this->session->userdata('loginID');
+
 		$data=array('name'=>$name,'level'=>$level,'description'=>$descript);
+
 		$res=$this->db->insert("skill",$data);
+
 		if($res)
 		{
 			$sql="select @@IDENTITY as la";
+
 			$query=$this->db->query($sql);
+
 			$row=$query->row();
+
 			$lastID=$row->la;
-			//查询出 act中skillID 插入skillID
+
 			$sqla1="select skillID from act where loginID= ".$loginID." ";
+
 			$query1=$this->db->query($sqla1);
+
 			$row=$query1->row();
+
 			$skillID=$row->skillID;
+
 			if(is_null($skillID))
 			{
 				$sqla2="UPDATE `act` SET `skillID`=? WHERE (`loginID`=?) ";
+
 				$query2=$this->db->query($sqla2,array($lastID,$loginID));
 			}
 			else
 			{
 				$idData=$skillID.','.$lastID;
+
 				$sqla2="UPDATE `act` SET `skillID`=? WHERE (`loginID`=?) ";
+
 				$query2=$this->db->query($sqla2,array($idData,$loginID));
 			}
 		}       
@@ -42,9 +55,38 @@ class mUserCenter extends CI_Model {
 
 	public function skillGet($value='')
 	{
+		$loginID=$this->session->userdata('loginID');
+		$sql="select skillID from act where loginID=? ";
+		$query=$this->db->query($sql,array($loginID));
+		$row=$this->$query->row();
+		$skillID=$row->skillID;
+		$sqlSkill=array();
+		if(is_null($skillID))
+		{
+			return "请添加 Skill card ";
+		}
+
+		$arraySkillID=explode(','$skillID);
+
+		if (count($arraySkillID)>1) 
+		{
+			for ($i=0; $i <count($arraySkillID); $i++) 
+			{ 
+				$sqlSkill[i]=" skillID=".$arraySkillID[i];
+			}
+			$sqlWhere=implode(" OR ",$sqlSkill);
+			$sqlS="select * from skill where".$sqlWhere;
+			$query=$this->db->query($sqlS);
+			$row=$query->row();
+			return $row;
+		}
+		else
+		{
+
+		}
 		
 	}
-	
+
 }
 
 /* End of file mUserCenter.php */

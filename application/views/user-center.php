@@ -5,7 +5,7 @@
                 <img class="img-circle" src="http://i2.tietuku.com/007a5bf54fb7495f.jpg" width="100%">
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <h3>Keven</h3>
+                <h3><?php  echo $this->session->userdata('userName') ;  ?></h3>
             </div>
             <div class="col-xs-8 col-sm-9 col-md-9 col-lg-9">
                 <ol class="breadcrumb ckNav2">
@@ -13,12 +13,13 @@
                         <a href="#addTec" data-toggle="modal" data-target="#addTec">添加技能片</a>
                     </li>
                 </ol>
-                <!-- <i class="glyphicon glyphicon-tags"></i>标签： -->
+                <!-- <i class="glyphicon glyphicon-tags"></i>标签：-->
             </div>
         </div>
         <hr>
         <div class="row">
-            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="panel panel-info ckpanel">
                     <div class="panel-heading">
                         <h4 class="panel-title"><i class=" glyphicon glyphicon-file"></i> 技能片</h4>
@@ -26,7 +27,7 @@
                     </div>
                     <div class="panel-body">
                         <img src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%">
-                        <h4>瑜伽教练</h4>
+                        <h4> Name </h4>
                         <p class="text-primary">
                             熟练度：
                             <span class="glyphicon glyphicon-star"></span>
@@ -35,10 +36,11 @@
                             <span class="glyphicon glyphicon-star-empty"></span>
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </p>
-                        <p>PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计PS 广告设计</p>
+                        <p> description descriptiondesc riptiondescrip tiondescripti ondescription escriptiondesc riptiondescription </p>
                     </div>
                     <div class="panel-footer text-right">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tecModify">编辑资料</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">删除资料</button>
                     </div>
                 </div>
             </div>
