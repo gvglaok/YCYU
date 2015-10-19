@@ -18,25 +18,27 @@
         </div>
         <hr>
         <div class="row">
-            
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <?php if (is_null($mes)) : ?>
+            <?php foreach ($skill->result_array() as $card): ?>
+
+            <div ng-controller="skillCard" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="panel panel-info ckpanel">
                     <div class="panel-heading">
                         <h4 class="panel-title"><i class=" glyphicon glyphicon-file"></i> 技能片</h4>
-                        <!-- <button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-file"></i>编辑</button>   -->
+                        
                     </div>
                     <div class="panel-body">
                         <img src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%">
-                        <h4> Name </h4>
+                        <h4> <?=$card['name']; ?> </h4>
                         <p class="text-primary">
-                            熟练度：
-                            <span class="glyphicon glyphicon-star"></span>
+                            熟练度：<?=$card['level']; ?> 星
+                            <!-- <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star-empty"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span> -->
                         </p>
-                        <p> description descriptiondesc riptiondescrip tiondescripti ondescription escriptiondesc riptiondescription </p>
+                        <p> <?=$card['description']; ?></p>
                     </div>
                     <div class="panel-footer text-right">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tecModify">编辑资料</button>
@@ -45,6 +47,10 @@
                 </div>
             </div>
 
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="alert alert-warning" role="alert"><?=$mes ?></div>
+        <?php endif ?>
         </div>
     </div>
     

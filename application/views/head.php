@@ -52,8 +52,8 @@
                                     }
                                 ?>
                         </li>
-
-                        <li><a href="<?php echo base_url(); ?>cusercenter">个人中心</a></li>
+                        <?php echo is_null($name)? '' : '<li><a href="'.$bu.'cusercenter">个人中心</a></li>' ?>
+                        
                     </ol>
                 </div>
             </div>

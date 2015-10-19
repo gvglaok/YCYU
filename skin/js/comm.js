@@ -37,7 +37,7 @@ ngYcyu.controller('addTec', ['$scope', '$http', function($scope, $http) {
             }
 
             $http(hp).then(function(response) {
-              alert("-----------  OK -----------");
+              alert("添加成功");
             },function(response) {
               alert("Bad Request");
             });
