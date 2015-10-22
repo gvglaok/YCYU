@@ -30,6 +30,7 @@ class cUserCenter extends CI_Controller {
 		}
 		
 	}
+
 	//添加技能片
 	public function addSkill()
 	{
@@ -42,6 +43,13 @@ class cUserCenter extends CI_Controller {
 		$res=$this->mu->addSkill($tName,$tLvl,$tDes);
 		echo $res>0 ? "success" : "error";
 	}
+
+	//get one skill card
+	public function getOneSkill($value='')
+	{
+		
+	}
+
 	//修改技能片
 	public function modifySkill($value='')
 	{

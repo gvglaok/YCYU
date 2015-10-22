@@ -34,7 +34,8 @@ class mUserCenter extends CI_Model {
 		}       
 		return $res;
 	}
-	public function skillGet($value='')
+
+	public function skillGet()
 	{
 		$loginID=$this->session->userdata('loginID');
 		$sql="select skillID from act where loginID=? ";
@@ -62,10 +63,27 @@ class mUserCenter extends CI_Model {
 		{
 			$sql="select * from skill where skillID=$skillID ";
 			$query=$this -> db -> query($sql);
-			//$row = $query -> row_array();
 			return $query;
 		}
 		
+	}
+
+	public function oneSkillGet($value="")
+	{
+		$sql="select * from skill where skillID= ? ";
+		$query = $this -> db -> query($sql,array($value));
+		$row = $query -> row();
+		return $row; 
+	}
+
+	public function skillUpdata($value='')
+	{
+		# code...
+	}
+
+	public function skillDelete($value='')
+	{
+		# code...
 	}
 }
 /* End of file mUserCenter.php */

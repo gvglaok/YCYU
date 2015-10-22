@@ -25,20 +25,19 @@
                 <div class="panel panel-info ckpanel">
                     <div class="panel-heading">
                         <h4 class="panel-title"><i class=" glyphicon glyphicon-file"></i> 技能片</h4>
-                        
                     </div>
                     <div class="panel-body">
                         <img src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%">
-                        <h4> <?=$card['name']; ?> </h4>
+                        <h4 ng-model="sc.name"> <?=$card['name']; ?> </h4>
                         <p class="text-primary">
-                            熟练度：<?=$card['level']; ?> 星
+                            熟练度：<span ng-model="sc.level"><?=$card['level']; ?></span> 星
                             <!-- <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star-empty"></span>
                             <span class="glyphicon glyphicon-star-empty"></span> -->
                         </p>
-                        <p> <?=$card['description']; ?></p>
+                        <p ng-model="sc.descript"> <?=$card['description']; ?></p>
                     </div>
                     <div class="panel-footer text-right">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tecModify">编辑资料</button>
@@ -50,7 +49,7 @@
             <?php endforeach; ?>
         <?php else: ?>
             <div class="alert alert-warning" role="alert"><?=$mes ?></div>
-        <?php endif ?>
+        <?php endif; ?>
         </div>
     </div>
     
