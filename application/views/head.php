@@ -20,7 +20,7 @@
 
 <body>
     <header>
-        <!--  logo search login 注册 个人面板 -->
+        <!--  logo search login regist usercenter -->
         <div class="container">
             <div class="row">
                 <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3">
@@ -48,11 +48,11 @@
                                     if (!is_null($name)) {
                                         echo "welcome ".$name;
                                     } else {
-                                        echo '<a href="'.$bu.'clogin">登录 / 注册</a>';
+                                        echo '<a href="'.$bu.'clogin">Login / Regist</a>';
                                     }
                                 ?>
                         </li>
-                        <?php echo is_null($name)? '' : '<li><a href="'.$bu.'cusercenter">个人中心</a></li>' ?>
+                        <?php echo is_null($name)? '' : '<li><a href="'.$bu.'cusercenter">User Center</a></li>' ?>
                         
                     </ol>
                 </div>

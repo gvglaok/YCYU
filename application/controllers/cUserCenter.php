@@ -51,9 +51,11 @@ class cUserCenter extends CI_Controller {
 	}
 
 	//修改技能片
-	public function modifySkill($value='')
+	public function modifySkill()
 	{
-		 
+		$data=$this->input->raw_input_stream;
+		$obj=json_decode($data);
+		var_dump($obj);
 	}
 }
 /* End of file cUserCenter.php */

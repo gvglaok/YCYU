@@ -68,7 +68,7 @@ class mUserCenter extends CI_Model {
 		
 	}
 
-	public function oneSkillGet($value="")
+	public function oneSkillGet()
 	{
 		$sql="select * from skill where skillID= ? ";
 		$query = $this -> db -> query($sql,array($value));
@@ -76,9 +76,9 @@ class mUserCenter extends CI_Model {
 		return $row; 
 	}
 
-	public function skillUpdata($value='')
+	public function skillUpdata()
 	{
-		# code...
+		
 	}
 
 	public function skillDelete($value='')
