@@ -1,9 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class cUserCenter extends CI_Controller {
+	
 	public function __construct()
 	{
 		parent::__construct();
 	}
+	
+	//数据crud验证数据有效性，数据边际，是否在可操作权限内
+
 	public function index()
 	{
 		$this->load->model("mUsercenter","mu");
@@ -20,7 +24,7 @@ class cUserCenter extends CI_Controller {
 		$this->output->enable_profiler(TRUE);
 	}
 	
-	//拉取skill
+	//拉取skill 
 	public function pullSkill()
 	{
 		$this->load->model("mUsercenter","mu");
@@ -31,7 +35,7 @@ class cUserCenter extends CI_Controller {
 		
 	}
 
-	//添加技能片
+	//添加技能片 
 	public function addSkill()
 	{
 		$this->load->model("mUsercenter","mu");
@@ -44,18 +48,26 @@ class cUserCenter extends CI_Controller {
 		echo $res>0 ? "success" : "error";
 	}
 
-	//get one skill card
-	public function getOneSkill($value='')
+	//delete skill
+	public function deleteSkill()
 	{
-		
+		$sid=$_POST['sid'];
+		$this->load->model("mUserCenter","sm");
+		$res=$this->sm->skillDelete($sid);
+		//echo $res ? "success" : "error";
+		echo $res;
 	}
 
 	//修改技能片
 	public function modifySkill()
 	{
-		$data=$this->input->raw_input_stream;
-		$obj=json_decode($data);
-		var_dump($obj);
+		$sname=$_POST['name'];
+		$slevel=$_POST['level'];
+		$sdes=$_POST['des'];
+		$sid=$_POST['sid'];
+		$this->load->model("mUserCenter","sm");
+		$res=$this->sm->skillUpdata($sid,$sname,$slevel,$sdes);
+		echo $res ? "ok" : "error";
 	}
 }
 /* End of file cUserCenter.php */

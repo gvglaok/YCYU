@@ -16,7 +16,15 @@ $(function() {
         $("#upName").val(tname);
         $("#upLevel").val(tlevel);
         $("#upDes").val(tdes);
+        $("#usid").val(isID);
     });
+
+    $("button[name^='delete']").click(function() {
+        var thisID=$(this).attr("sid");
+        deleteSK(thisID);
+    });
+
+    $("#usbtn").click(updataSkill);
 
 });
 
@@ -37,12 +45,39 @@ function okReg() {
 };
 
 //验证域有效性 -> 需要确定是否为当前用户的SkillID
-/*function updataSkill(skillID){
+function updataSkill() {
+
+    var sname = $("#upName").val();
+    var slevel = $("#upLevel").val();
+    var sdes = $("#upDes").val();
+    var sid = $("#usid").val();
     $.ajax({
-        url: '/t6/cusercenter/updataSkill',
+            url: '/t6/cusercenter/modifySkill',
+            type: 'post',
+            data: {
+                "name": sname,
+                "level": slevel,
+                "des": sdes,
+                "sid": sid
+            }
+        })
+        .done(function() {
+            swal("Success","修改成功","success");
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+};
+
+//delete skill
+function deleteSK (sid) {
+    $.ajax({
+        url: '/t6/cusercenter/deleteSkill',
         type: 'post',
-        dataType: '',
-        data: {skillID: 'value1'},
+        data: {"sid": sid},
     })
     .done(function() {
         console.log("success");
@@ -52,9 +87,8 @@ function okReg() {
     })
     .always(function() {
         console.log("complete");
-    });
-    
-};*/
+    });    
+}
 
 //angular ajax
 var ngYcyu = angular.module('ycyu', []);
@@ -80,22 +114,26 @@ ngYcyu.controller('addTec', ['$scope', '$http', function($scope, $http) {
 
 }]);
 
-ngYcyu.controller('updataSkill', ['$scope', '$http', function($scope, $http) {
-    $scope.Upskill=function(){
-        var ups={
-            method : "post",
-            url: "/t6/cusercenter/modifySkill",
-            headers:{
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            data: $scope.uskill
-        } 
-        $http(ups).then(function(response) {
-            alert("Updata Success");
-        }, function(response) {
-            alert("Bad Request");
-        });
+/*ngYcyu.controller('updataSkill', ['$scope', '$http', function($scope, $http) {
+    $scope.Upskill = function() {
+        if (uskill.name != '' && uskill.name != '' && uskill.name != '') {
+            var ups = {
+                method: "post",
+                url: "/t6/cusercenter/modifySkill",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                data: $scope.uskill
+            }
+            $http(ups).then(function(response) {
+                alert("Updata Success");
+            }, function(response) {
+                alert("Bad Request");
+            });
+
+        }
+        else {
+            alert("no change");
+        }
     }
-}]);
-
-
+}]);*/

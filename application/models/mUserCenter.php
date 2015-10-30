@@ -5,6 +5,14 @@ class mUserCenter extends CI_Model {
 		parent::__construct();
 		
 	}
+
+	//检查 数据 有效性（数据是否在可 操作权限内）
+	//验证 数据是否在 act 中 相对应的数据
+	function checkEdge()
+	{
+		# code...
+	}
+
 	public function addSkill($name,$level,$descript)
 	{
 		$loginID=$this->session->userdata('loginID');
@@ -38,7 +46,7 @@ class mUserCenter extends CI_Model {
 	public function skillGet()
 	{
 		$loginID=$this->session->userdata('loginID');
-		$sql="select skillID from act where loginID=? ";
+		$sql="select skillID from act where loginID=?";
 		$query=$this->db->query($sql,array($loginID));
 		$row=$query->row();
 		$skillID=$row->skillID;
@@ -76,14 +84,41 @@ class mUserCenter extends CI_Model {
 		return $row; 
 	}
 
-	public function skillUpdata()
+	//检查skillID Number
+	public function skillDelete($sid="")
 	{
+		//$sql="DELETE FROM project WHERE (skillID=?)";
 		
+		$lid=$this->session->userdata('loginID');
+		$sqlAct="select skillID from act where loginID=?";
+		$query=$this->db->query($sqlAct,array($lid));
+		$row=$query->row();
+		$strSid=$row->skillID;
+		$arrSid=explode(',',$strSid);
+		$asKey=array_search($sid,$arrSid);
+		if(is_null($asKey))
+		{
+			//数据不再可操作范围内
+			die();
+		}
+		unset($arrSid[$asKey]);
+		$strSid=implode(',',$arrSid);
+		return $strSid;
+		/*$sqlActUpdata="UPDATE act SET skillID=? WHERE loginID=? ";
+		$queryau=$this->db->query($sqlActUpdata,array($strSid,$lid));
+
+		$sqlSK="DELETE FROM skill WHERE (skillID=?)";
+		$querysk=$this->db->query($sqlSK,array($sid));
+		return $querysk;*/
 	}
 
-	public function skillDelete($value='')
+	public function skillUpdata($sid='',$sname='',$slevel='',$sdes='')
 	{
-		# code...
+		
+		$sql="UPDATE skill SET name=?,level=?,description=? WHERE (skillID=?)";
+		$query = $this -> db -> query($sql,array($sname,$slevel,$sdes,$sid));
+		return $query;
+
 	}
 }
 /* End of file mUserCenter.php */

@@ -17,7 +17,7 @@
             </div>
         </div>
         <hr>
-        <div ng-controller="Scard" class="row">
+        <div class="row">
             <?php if (is_null($mes)) : ?>
             <?php foreach ($skill->result_array() as $card): ?>
 
@@ -28,7 +28,7 @@
                     </div>
                     <div class="panel-body">
                         <img src="/t6/skin/img/1.png" width="100%">
-                        <h4 id="name<?=$card['skillID']?>" ng-model="sc.name"> <?=$card['name']; ?> </h4>
+                        <h4 id="name<?=$card['skillID']?>"> <?=$card['name']; ?> </h4>
                         <p class="text-primary">
                             熟练度：<span id="level<?=$card['skillID']?>"><?=$card['level']; ?></span> 星
                             <!-- <span class="glyphicon glyphicon-star"></span>
@@ -67,7 +67,7 @@
                        <!--  <img id="addImg" class="img-rounded" src="http://i1.tietuku.com/f5f1a25ee37d78c0.jpg" width="100%" data-toggle="tooltip" data-placement="top" title="点击更换图片"> -->
                         
                         <!-- <input type="file" name="imgSelect"/> -->
-
+                        <input id="usid" type="hidden">
                         <div class="form-group">
                             <br>
                             <input type="text" class="form-control" ng-model="tec.name" name="jname" placeholder="技能名">
@@ -92,7 +92,7 @@
     </div>
 
     <!-- 修改编辑 -->
-    <div id="tecModify" ng-controller="updataSkill" tabindex="-1" role="dialog" class="modal fade">
+    <div id="tecModify"  tabindex="-1" role="dialog" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -104,19 +104,18 @@
                         <img class="img-rounded" src="/t6/skin/img/2.png" width="100%" data-toggle="tooltip" data-placement="top" title="点击更换图片">
                         <div class="form-group">
                             <br>
-                            <input id="upName" ng-model="uskill.name" type="text" class="form-control" placeholder="Skill Name">
+                            <input id="upName"  type="text" class="form-control" placeholder="Skill Name">
                             <br>
                             <div class="input-group">
                                 <div class="input-group-addon">熟练度：</div>
-                                <input id="upLevel" ng-model="uskill.level" type="number" class="form-inline form-control" />
+                                <input id="upLevel"  type="number" class="form-inline form-control" />
                                 <div class="input-group-addon">星</div>
                             </div>
                             <br>
-                            <textarea id="upDes" ng-model="uskill.des" class="form-control" placeholder="Description" rows="3"></textarea>
+                            <textarea id="upDes"  class="form-control" placeholder="Description" rows="3"></textarea>
                         </div>
-                        <button type="button" ng-click="Upskill()" class="btn btn-primary">保存</button>
+                        <button id="usbtn" type="button" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
                 </div>
                 <!--<div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
