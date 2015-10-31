@@ -20,8 +20,19 @@ $(function() {
     });
 
     $("button[name^='delete']").click(function() {
-        var thisID=$(this).attr("sid");
-        deleteSK(thisID);
+        swal({
+          title: " 确认删除 ?",
+          text: "删除后将无法恢复！",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "确认",
+          cancelButtonText: "取消",
+          closeOnConfirm: false
+        },function(){
+            var thisID=$(this).attr("sid");
+            deleteSK(thisID);
+        });
     });
 
     $("#usbtn").click(updataSkill);
@@ -80,7 +91,7 @@ function deleteSK (sid) {
         data: {"sid": sid},
     })
     .done(function() {
-        console.log("success");
+        swal("Success","删除成功","success");
     })
     .fail(function() {
         console.log("error");
@@ -114,26 +125,4 @@ ngYcyu.controller('addTec', ['$scope', '$http', function($scope, $http) {
 
 }]);
 
-/*ngYcyu.controller('updataSkill', ['$scope', '$http', function($scope, $http) {
-    $scope.Upskill = function() {
-        if (uskill.name != '' && uskill.name != '' && uskill.name != '') {
-            var ups = {
-                method: "post",
-                url: "/t6/cusercenter/modifySkill",
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                data: $scope.uskill
-            }
-            $http(ups).then(function(response) {
-                alert("Updata Success");
-            }, function(response) {
-                alert("Bad Request");
-            });
 
-        }
-        else {
-            alert("no change");
-        }
-    }
-}]);*/

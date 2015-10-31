@@ -54,8 +54,7 @@ class cUserCenter extends CI_Controller {
 		$sid=$_POST['sid'];
 		$this->load->model("mUserCenter","sm");
 		$res=$this->sm->skillDelete($sid);
-		//echo $res ? "success" : "error";
-		echo $res;
+		echo $res ? "success" : "error";		
 	}
 
 	//修改技能片

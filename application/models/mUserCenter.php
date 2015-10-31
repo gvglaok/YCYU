@@ -28,7 +28,7 @@ class mUserCenter extends CI_Model {
 			$query1=$this->db->query($sqla1);
 			$row=$query1->row();
 			$skillID=$row->skillID;
-			if(is_null($skillID))
+			if(is_null($skillID) OR $skillID=="")
 			{
 				$sqla2="UPDATE `act` SET `skillID`=? WHERE (`loginID`=?) ";
 				$query2=$this->db->query($sqla2,array($lastID,$loginID));
@@ -51,11 +51,13 @@ class mUserCenter extends CI_Model {
 		$row=$query->row();
 		$skillID=$row->skillID;
 		$sqlSkill=array();
-		if(is_null($skillID))
+		
+		if(is_null($skillID) OR $skillID =="")
 		{
 			return false;
 		}
 		$arraySkillID=explode(',',$skillID);
+		
 		if (count($arraySkillID)>1) 
 		{
 			for ($i=0; $i <count($arraySkillID); $i++) 
@@ -95,21 +97,30 @@ class mUserCenter extends CI_Model {
 		$row=$query->row();
 		$strSid=$row->skillID;
 		$arrSid=explode(',',$strSid);
+
 		$asKey=array_search($sid,$arrSid);
+
+		//数据不再可操作范围内
 		if(is_null($asKey))
 		{
-			//数据不再可操作范围内
 			die();
 		}
+
 		unset($arrSid[$asKey]);
-		$strSid=implode(',',$arrSid);
-		return $strSid;
-		/*$sqlActUpdata="UPDATE act SET skillID=? WHERE loginID=? ";
+		if(count($arrSid)>0)
+		{
+			$strSid=implode(',',$arrSid);
+		} else {
+			$strSid="";
+		}
+
+		$sqlActUpdata="UPDATE act SET skillID=? WHERE loginID=? ";
 		$queryau=$this->db->query($sqlActUpdata,array($strSid,$lid));
 
 		$sqlSK="DELETE FROM skill WHERE (skillID=?)";
 		$querysk=$this->db->query($sqlSK,array($sid));
-		return $querysk;*/
+
+		return $querysk;
 	}
 
 	public function skillUpdata($sid='',$sname='',$slevel='',$sdes='')
